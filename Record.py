@@ -1,11 +1,13 @@
-from datetime import date, time
 from enum import Enum
 from pydantic import BaseModel
+from datetime import date, time
 
 
 class Duration(Enum):
     THIRTY_MINUTES = "30 минут"
     ONE_HOUR = "1 час"
+    HOUR_AND_HALF = "1.5 часа"
+    TWO_HOURS = "2 часа"
     GROUP_CALL = "Групповой созвон"
     NOT_SELECTED = "Не выбрано"
 

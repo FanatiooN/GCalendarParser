@@ -1,10 +1,11 @@
-from gspread import service_account, Client, Spreadsheet
-from datetime import date, datetime
-from pandas import DataFrame
-from dotenv import load_dotenv
-from Record import Record
 import os
 import re
+
+from Record import Record
+from pandas import DataFrame
+from dotenv import load_dotenv
+from datetime import datetime
+from gspread import service_account, Client, Spreadsheet
 
 
 class SheetsParser:
