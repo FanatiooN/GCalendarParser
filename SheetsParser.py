@@ -27,7 +27,9 @@ class SheetsParser:
             for line in data:
                 if re.match(r"\d{1,2}.\d{1,2}", line[0]):
                     date_str, time, fullname, duration, theme, difficulty = line
-                    date_obj = datetime.strptime(date_str, "%d.%m").date()
+                    year = datetime.now().year
+                    date_str = f"{date_str}.{year}"
+                    date_obj = datetime.strptime(date_str, "%d.%m.%Y").date()
 
                     record = Record(
                         date=date_obj,
@@ -38,7 +40,7 @@ class SheetsParser:
                         difficulty=difficulty,
                     )
 
-                    records.append(record)
+                    records.append(record.model_dump())
 
         result = DataFrame(records)
         return result
