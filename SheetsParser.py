@@ -2,10 +2,12 @@ import os
 import re
 
 from Record import Record
+from gspread import Client
 from pandas import DataFrame
-from dotenv import load_dotenv
 from datetime import datetime
-from gspread import service_account, Client, Spreadsheet
+from dotenv import load_dotenv
+from gspread import Spreadsheet
+from gspread import service_account
 
 
 class SheetsParser:
@@ -44,6 +46,7 @@ class SheetsParser:
                     records.append(record.model_dump())
 
         result = DataFrame(records)
+        result = result[result['fullname'] != '']
         return result
 
 

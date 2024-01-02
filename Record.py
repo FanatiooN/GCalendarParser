@@ -1,6 +1,7 @@
 from enum import Enum
+from datetime import date
+from datetime import  time
 from pydantic import BaseModel
-from datetime import date, time
 
 
 class Duration(Enum):
